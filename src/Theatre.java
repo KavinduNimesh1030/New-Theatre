@@ -2,9 +2,9 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Theatre {
-    int[] row1 = {0,0,0,0,0,0,0,0,0,0,0,0};
-    int[] row2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    int[] row3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    static int[] row1 = {0,0,0,0,0,0,0,0,0,0,0,0};
+    static int[] row2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    static int[] row3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
      static  Scanner scanner = new Scanner(System.in);  // Create a Scanner object to get user option
 
@@ -48,7 +48,16 @@ public class Theatre {
         String rowNumber = scanner.nextLine();
         System.out.println(rowNumber);
         System.out.println("Enter Seat Number : ");
-        String seatNumber = scanner.nextLine();
+        int seatNumber = Integer.parseInt(scanner.nextLine());
         System.out.println(seatNumber);
+
+        //check which array matches for user input row number
+        if(rowNumber.equals("1")){
+            //check valid seat number
+            if(!(seatNumber <=15 && seatNumber>0)){
+                System.out.println("please Enter a valid seat Number..!");
+                
+            }
+        }
     }
 }
