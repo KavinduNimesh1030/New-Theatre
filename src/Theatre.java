@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.util.Scanner;
 
 public class Theatre {
     int[] row1 = {};
@@ -21,6 +22,11 @@ public class Theatre {
 
         System.out.println("------------------------------------------------");
 
-        System.out.println("Enter Option :");
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object to get user option
+        System.out.println("Enter Option : ");
+
+        String option = myObj.nextLine();
+        
+
     }
 }
