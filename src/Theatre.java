@@ -2,9 +2,11 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Theatre {
-    int[] row1 = {};
-    int[] row2 = {};
-    int[] row3 = {};
+    int[] row1 = {0,0,0,0,0,0,0,0,0,0,0,0};
+    int[] row2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int[] row3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+     static  Scanner scanner = new Scanner(System.in);  // Create a Scanner object to get user option
 
     public static void main(String[] args) {
         System.out.println("Welcome to the New Theatre");
@@ -22,11 +24,31 @@ public class Theatre {
 
         System.out.println("------------------------------------------------");
 
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object to get user option
+
         System.out.println("Enter Option : ");
 
-        String option = myObj.nextLine();
-        
+        String option = scanner.nextLine();
 
+        switch(option) {
+            case "1":
+                buyTicket();
+                break;
+            case "2":
+
+                break;
+            default:
+
+        }
+
+
+    }
+
+    public static void buyTicket(){
+        System.out.println("Enter Row Number : ");
+        String rowNumber = scanner.nextLine();
+        System.out.println(rowNumber);
+        System.out.println("Enter Seat Number : ");
+        String seatNumber = scanner.nextLine();
+        System.out.println(seatNumber);
     }
 }
