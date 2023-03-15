@@ -1,5 +1,6 @@
 import java.io.*;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -7,6 +8,8 @@ public class Theatre {
     static int[] row1 = {0,0,0,0,0,0,0,0,0,0,0,0};
     static int[] row2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     static int[] row3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    static ArrayList<Ticket>tickets = new ArrayList<>();
 
      static  Scanner scanner = new Scanner(System.in);  // Create a Scanner object to get user option
 
@@ -81,11 +84,27 @@ public class Theatre {
         System.out.println("Enter Seat Number : ");
         int seatNumber = Integer.parseInt(scanner.nextLine());
 
+        System.out.println("Enter Name : ");
+        String name =scanner.nextLine();
+
+        System.out.println("Enter SurName : ");
+        String surname = scanner.nextLine();
+
+        System.out.println("Enter Email : ");
+        String email = scanner.nextLine();
+
+        System.out.println("Enter Ticket Price : ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        Person person = new Person(name,surname,email);
+        tickets.add(new Ticket(Integer.parseInt(rowNumber),seatNumber,price,person));
+
         //check which array matches for user input row number
         if(rowNumber.equals("1")){
 
             //check valid seat number
             bookTicket(row1,seatNumber);
+
 
         }else if(rowNumber.equals("2")){
 
