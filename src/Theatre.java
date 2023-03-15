@@ -38,7 +38,7 @@ public class Theatre {
                 print_seating_area();
                 break;
             case "3":
-               cancel();
+             cancel_ticket();
                 break;
             default:
 
@@ -48,6 +48,7 @@ public class Theatre {
     }
 
     public static void buyTicket(){
+        System.out.println("--------------------Buy Ticket--------------------");
 
         System.out.println("Enter Row Number : ");
         String rowNumber = scanner.nextLine();
@@ -167,6 +168,7 @@ public class Theatre {
         }else {
             System.out.println("please Enter a valid Row Number..!");
         }
+     
     }
 
     //This method created for avoid boilerplate codes in cancel_ticket method
@@ -176,15 +178,17 @@ public class Theatre {
 
             System.out.println("data "+row[seatNumber-1]);
             //check seat availability
-            if(row[seatNumber-1] == 0){
-                System.out.println("Seat already Available..!");
-            }else {
+            if(row[seatNumber-1] == 1){
                 row[seatNumber-1] = 0;
                 System.out.println("Cancel Ticket Process Successful..!");
+            }else {
+                System.out.println("Seat already Available..!");
             }
 
         }else {
             System.out.println("please Enter a valid seat Number..!");
         }
+
+
     }
 }
