@@ -43,6 +43,9 @@ public class Theatre {
             case "3":
                 cancel_ticket();
                 break;
+            case "4":
+                show_available();
+                break;
             case "0":
                 System.exit(0);
                 break;
@@ -218,5 +221,13 @@ public class Theatre {
         }
 
 
+    }
+    public static void show_available(){
+        System.out.print("Seats available in row 1: ");
+        for (int i = 0; i < row1.length; i++) {
+            if (row1[i]==0){
+                System.out.print((i+1)+",");
+            }
+        }
     }
 }
