@@ -35,7 +35,7 @@ public class Theatre {
                 buyTicket();
                 break;
             case "2":
-
+                print_seating_area();
                 break;
             default:
 
@@ -72,21 +72,27 @@ public class Theatre {
 
     //This method created for avoid boilerplate codes
     public static void bookTicket(int[]row,int seatNumber){
-        
+
         if(seatNumber <=15 && seatNumber>0){
 
             System.out.println("data "+row[seatNumber-1]);
             //check seat availability
             if(row[seatNumber-1] == 0){
-                System.out.println("seat available");
                 row[seatNumber-1] = 1;
-                /*     System.out.println("Array"+Arrays.toString(row1));*/
+                System.out.println("Buy ticket successful..!");
+                    /* System.out.println("Array"+Arrays.toString(row1));*/
             }else {
                 System.out.println("Seat Not Available ..!");
+                System.out.println("Enter another Seat Number : ");
+                int newSeatNumber = Integer.parseInt(scanner.nextLine());
+                bookTicket(row,newSeatNumber);
             }
 
         }else {
             System.out.println("please Enter a valid seat Number..!");
         }
+    }
+    public static void  print_seating_area(){
+
     }
 }
