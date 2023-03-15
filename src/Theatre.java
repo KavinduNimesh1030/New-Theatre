@@ -37,6 +37,9 @@ public class Theatre {
             case "2":
                 print_seating_area();
                 break;
+            case "3":
+               cancel();
+                break;
             default:
 
         }
@@ -72,8 +75,8 @@ public class Theatre {
 
     //This method created for avoid boilerplate codes
     public static void bookTicket(int[]row,int seatNumber){
-
-        if(seatNumber <=15 && seatNumber>0){
+        int seatCount = row.length;
+        if(seatNumber <=seatCount && seatNumber>0){
 
             System.out.println("data "+row[seatNumber-1]);
             //check seat availability
@@ -139,6 +142,49 @@ public class Theatre {
             }else{
                 System.out.print("X");
             }
+        }
+    }
+    public static void cancel_ticket(){
+        System.out.println("--------------------Cancel Ticket--------------------");
+        System.out.println("Enter Row Number : ");
+        String rowNumber = scanner.nextLine();
+
+        System.out.println("Enter Seat Number : ");
+        int seatNumber = Integer.parseInt(scanner.nextLine());
+
+        if(rowNumber.equals("1")){
+
+            //check valid seat number
+            cancel(row1,seatNumber);
+
+        }else if(rowNumber.equals("2")){
+
+            cancel(row2,seatNumber);
+
+        }else if(rowNumber.equals("3")){
+
+            cancel(row3,seatNumber);
+        }else {
+            System.out.println("please Enter a valid Row Number..!");
+        }
+    }
+
+    //This method created for avoid boilerplate codes in cancel_ticket method
+    public static void cancel(int[]row,int seatNumber){
+        int seatCount = row.length;
+        if(seatNumber <=seatCount && seatNumber>0){
+
+            System.out.println("data "+row[seatNumber-1]);
+            //check seat availability
+            if(row[seatNumber-1] == 0){
+                System.out.println("Seat already Available..!");
+            }else {
+                row[seatNumber-1] = 0;
+                System.out.println("Cancel Ticket Process Successful..!");
+            }
+
+        }else {
+            System.out.println("please Enter a valid seat Number..!");
         }
     }
 }
