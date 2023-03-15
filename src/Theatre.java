@@ -259,11 +259,15 @@ public class Theatre {
 
         returnToMain();
     }
+
+    /**************************************Array Save in File**************************************/
     public static void save(){
         try {
+            //send array and file name to save
             saveInFile("row1.txt",row1);
             saveInFile("row2.txt",row2);
             saveInFile("row3.txt",row3);
+            returnToMain();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -278,11 +282,15 @@ public class Theatre {
             outputStream.writeObject(row);
 
     }
+
+    /**************************************Load Array**************************************/
     public static void load(){
         try {
+            //send file name to load an array
             loadFile("row1.txt");
             loadFile("row2.txt");
             loadFile("row3.txt");
+            returnToMain();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -291,7 +299,7 @@ public class Theatre {
     }
     static int i =1;
     public static void loadFile(String file) throws IOException, ClassNotFoundException {
-
+        //you should create a directory in your computer and set its path here
         String fileName= "C:\\Users\\User\\Desktop\\TxtFiles\\"+file;
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName));
         int[] intArr = (int[])inputStream.readObject();
