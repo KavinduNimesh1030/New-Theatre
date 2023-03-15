@@ -129,6 +129,7 @@ public class Theatre {
             if(row[seatNumber-1] == 0){
                 row[seatNumber-1] = 1;
                 System.out.println("Buy ticket successful..!");
+                System.out.println(tickets.isEmpty());
                 returnToMain();
 
                     /* System.out.println("Array"+Arrays.toString(row1));*/
@@ -237,7 +238,10 @@ public class Theatre {
                     if(seatNumber == ticket.seat && rowNum == ticket.row){
                         System.out.println(ticket.toString());
                         tickets.remove(ticket);
+                        System.out.println(tickets.isEmpty());
+                        break;
                     }
+
                 }
 
                 row[seatNumber-1] = 0;
