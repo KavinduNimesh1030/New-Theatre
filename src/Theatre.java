@@ -93,6 +93,36 @@ public class Theatre {
         }
     }
     public static void  print_seating_area(){
+        //get all data in row1
+        for (int i = 0; i < row1.length; i++) {
+            //check seat available or not
+          if(row1[i]==0){
+              System.out.print("O");
+          }else{
+              System.out.print("X");
+          }
 
+        }
+        System.out.println();
+        //get all data in row2
+        for (int i = 0; i < row2.length; i++) {
+            //check seat available or not
+            if(row2[i]==0){
+                System.out.print("O");
+            }else{
+                System.out.print("X");
+            }
+
+        }
+        System.out.println();
+        //get all data in row3
+        for (int i = 0; i < row3.length; i++) {
+            //check seat available or not
+            if(row3[i]==0){
+                System.out.print("O");
+            }else{
+                System.out.print("X");
+            }
+        }
     }
 }
