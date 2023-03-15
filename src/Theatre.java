@@ -93,10 +93,19 @@ public class Theatre {
         }
     }
     public static void  print_seating_area(){
+        System.out.println("\t ***********");
+        System.out.println("\t *  Stage  *");
+        System.out.println("\t ***********");
+
+        System.out.println();
+        System.out.print("\t");
         //get all data in row1
         for (int i = 0; i < row1.length; i++) {
             //check seat available or not
           if(row1[i]==0){
+              if (i==6) {
+                  System.out.print(" ");
+              }
               System.out.print("O");
           }else{
               System.out.print("X");
@@ -104,10 +113,14 @@ public class Theatre {
 
         }
         System.out.println();
+        System.out.print("  ");
         //get all data in row2
         for (int i = 0; i < row2.length; i++) {
             //check seat available or not
             if(row2[i]==0){
+                if (i==8) {
+                    System.out.print(" ");
+                }
                 System.out.print("O");
             }else{
                 System.out.print("X");
@@ -119,6 +132,9 @@ public class Theatre {
         for (int i = 0; i < row3.length; i++) {
             //check seat available or not
             if(row3[i]==0){
+                if (i==10) {
+                    System.out.print(" ");
+                }
                 System.out.print("O");
             }else{
                 System.out.print("X");
