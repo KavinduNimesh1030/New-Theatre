@@ -96,6 +96,7 @@ public class Theatre {
         System.out.println("Enter Ticket Price : ");
         double price = Double.parseDouble(scanner.nextLine());
 
+        //add to array list
         Person person = new Person(name,surname,email);
         tickets.add(new Ticket(Integer.parseInt(rowNumber),seatNumber,price,person));
 
@@ -209,15 +210,15 @@ public class Theatre {
         if(rowNumber.equals("1")){
 
             //check valid seat number
-            cancel(row1,seatNumber);
+            cancel(row1,seatNumber,1);
 
         }else if(rowNumber.equals("2")){
 
-            cancel(row2,seatNumber);
+            cancel(row2,seatNumber,2);
 
         }else if(rowNumber.equals("3")){
 
-            cancel(row3,seatNumber);
+            cancel(row3,seatNumber,3);
         }else {
             System.out.println("please Enter a valid Row Number..!");
         }
@@ -225,13 +226,20 @@ public class Theatre {
     }
 
     //This method created for avoid boilerplate codes in cancel_ticket method
-    public static void cancel(int[]row,int seatNumber){
+    public static void cancel(int[]row,int seatNumber,int rowNum){
         int seatCount = row.length;
         if(seatNumber <=seatCount && seatNumber>0){
 
             System.out.println("data "+row[seatNumber-1]);
             //check seat availability
             if(row[seatNumber-1] == 1){
+                for (Ticket ticket : tickets) {
+                    if(seatNumber == ticket.seat && rowNum == ticket.row){
+                        System.out.println(ticket.toString());
+                        tickets.remove(ticket);
+                    }
+                }
+
                 row[seatNumber-1] = 0;
                 System.out.println("Cancel Ticket Process Successful..!");
                 returnToMain();
