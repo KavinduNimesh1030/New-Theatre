@@ -55,6 +55,9 @@ public class Theatre {
             case "6":
                 load();
                 break;
+            case "7":
+                show_tickets_info();
+                break;
             case "0":
                 System.exit(0);
                 break;
@@ -234,11 +237,17 @@ public class Theatre {
             System.out.println("data "+row[seatNumber-1]);
             //check seat availability
             if(row[seatNumber-1] == 1){
+
+                //loop all ticket ob in arraylist
                 for (Ticket ticket : tickets) {
+
+                    //get specifics ticket
                     if(seatNumber == ticket.seat && rowNum == ticket.row){
                         System.out.println(ticket.toString());
+
+                        //remove ticket ob in array list
                         tickets.remove(ticket);
-                        System.out.println(tickets.isEmpty());
+                       /* System.out.println(tickets.isEmpty());*/
                         break;
                     }
 
@@ -336,5 +345,14 @@ public class Theatre {
         int[] intArr = (int[])inputStream.readObject();
         System.out.println("Row"+i+": "+Arrays.toString(intArr));
         i++;
+    }
+
+    public static void show_tickets_info(){
+        System.out.println("---------------------------------Ticket Detail-----------------------------------");
+
+        for (Ticket ticket : tickets) {
+            System.out.println("Row Number - "+ticket.row+",Seat Number - "+ticket.seat+" | Ticket Price - "+ticket.price+" | Name - "+ticket.person.name+" | Surname - "+ticket.person.surname+" | Email - "+ticket.person.email);
+        }
+        returnToMain();
     }
 }
