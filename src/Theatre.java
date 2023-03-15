@@ -47,11 +47,12 @@ public class Theatre {
                 show_available();
                 break;
             case "5":
-                try {
                     save();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                break;
+            case "6":
+
+                /*   load();*/
+
                 break;
             case "0":
                 System.exit(0);
@@ -260,18 +261,31 @@ public class Theatre {
 
         returnToMain();
     }
-    public static void save() throws IOException {
-        System.out.println("aa");
-        String fileName= "C:\\Users\\User\\Desktop\\TxtFiles\\tempObj.txt";
+    public static void save(){
+        try {
+            saveInFile("row1.txt",row1);
+            saveInFile("row2.txt",row2);
+            saveInFile("row3.txt",row3);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveInFile(String file,int[]row) throws IOException {
+        //you should create a directory in your computer and set its path here
+        String fileName= "C:\\Users\\User\\Desktop\\TxtFiles\\"+file;
         ObjectOutputStream outputStream = null;
 
 
             outputStream = new ObjectOutputStream(new FileOutputStream(fileName));
-            outputStream.writeObject(row1);
-         /*   ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName));
-            int[] intArr = (int[])inputStream.readObject();
-            System.out.println("Array: "+Arrays.toString(intArr));*/
+            outputStream.writeObject(row);
+
 
 
     }
+ /*   public static void load() throws IOException, ClassNotFoundException {
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName));
+        int[] intArr = (int[])inputStream.readObject();
+        System.out.println("Array: "+Arrays.toString(intArr));
+    }*/
 }
