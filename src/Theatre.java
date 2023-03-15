@@ -1,4 +1,4 @@
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -45,6 +45,13 @@ public class Theatre {
                 break;
             case "4":
                 show_available();
+                break;
+            case "5":
+                try {
+                    save();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "0":
                 System.exit(0);
@@ -252,5 +259,19 @@ public class Theatre {
         System.out.println("\b"+".");
 
         returnToMain();
+    }
+    public static void save() throws IOException {
+        System.out.println("aa");
+        String fileName= "C:\\Users\\User\\Desktop\\TxtFiles\\tempObj.txt";
+        ObjectOutputStream outputStream = null;
+
+
+            outputStream = new ObjectOutputStream(new FileOutputStream(fileName));
+            outputStream.writeObject(row1);
+         /*   ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName));
+            int[] intArr = (int[])inputStream.readObject();
+            System.out.println("Array: "+Arrays.toString(intArr));*/
+
+
     }
 }
