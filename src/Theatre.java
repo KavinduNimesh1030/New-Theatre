@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Theatre {
-    static int[] row1 = {0,1,0,0,0,0,0,0,0,0,0,0};
+    static int[] row1 = {0,0,0,0,0,0,0,0,0,0,0,0};
     static int[] row2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     static int[] row3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
@@ -11,7 +12,9 @@ public class Theatre {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the New Theatre");
-
+        start();
+    }
+    public static void start(){
         System.out.println("Please select an option:");
         System.out.println("1) Buy a ticket");
         System.out.println("2) Print seating area");
@@ -38,15 +41,28 @@ public class Theatre {
                 print_seating_area();
                 break;
             case "3":
-             cancel_ticket();
+                cancel_ticket();
+                break;
+            case "0":
+                System.exit(0);
                 break;
             default:
 
         }
 
-
     }
-
+    /**************************************Return to main menu **************************************/
+    public static void returnToMain(){
+        System.out.println();
+        System.out.println("Do you want to go back to main menu,1(yes)/2(no) : ");
+        int rowNumber = Integer.parseInt(scanner.nextLine());
+        if(rowNumber == 1){
+            start();
+        }else {
+            System.exit(0);
+        }
+    }
+    /**************************************Buy Ticket**************************************/
     public static void buyTicket(){
         System.out.println("--------------------Buy Ticket--------------------");
 
@@ -84,6 +100,8 @@ public class Theatre {
             if(row[seatNumber-1] == 0){
                 row[seatNumber-1] = 1;
                 System.out.println("Buy ticket successful..!");
+                returnToMain();
+
                     /* System.out.println("Array"+Arrays.toString(row1));*/
             }else {
                 System.out.println("Seat Not Available ..!");
@@ -94,9 +112,12 @@ public class Theatre {
 
         }else {
             System.out.println("please Enter a valid seat Number..!");
+            returnToMain();
         }
     }
-    public static void  print_seating_area(){
+
+    /**************************************print_seating_are**************************************/
+    public static void print_seating_area(){
         System.out.println("\t ***********");
         System.out.println("\t *  Stage  *");
         System.out.println("\t ***********");
@@ -144,7 +165,11 @@ public class Theatre {
                 System.out.print("X");
             }
         }
+        returnToMain();
     }
+
+    /**************************************cancel_ticket**************************************/
+
     public static void cancel_ticket(){
         System.out.println("--------------------Cancel Ticket--------------------");
         System.out.println("Enter Row Number : ");
@@ -168,7 +193,7 @@ public class Theatre {
         }else {
             System.out.println("please Enter a valid Row Number..!");
         }
-     
+
     }
 
     //This method created for avoid boilerplate codes in cancel_ticket method
@@ -181,12 +206,15 @@ public class Theatre {
             if(row[seatNumber-1] == 1){
                 row[seatNumber-1] = 0;
                 System.out.println("Cancel Ticket Process Successful..!");
+                returnToMain();
             }else {
                 System.out.println("Seat already Available..!");
+                returnToMain();
             }
 
         }else {
             System.out.println("please Enter a valid seat Number..!");
+            returnToMain();
         }
 
 
