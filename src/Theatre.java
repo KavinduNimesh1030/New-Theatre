@@ -222,12 +222,35 @@ public class Theatre {
 
 
     }
+    /**************************************show_available**************************************/
     public static void show_available(){
+        //Row 1
         System.out.print("Seats available in row 1: ");
         for (int i = 0; i < row1.length; i++) {
             if (row1[i]==0){
                 System.out.print((i+1)+",");
             }
         }
+        System.out.println("\b"+".");
+
+        //Row 2
+        System.out.print("Seats available in row 2: ");
+        for (int i = 0; i < row2.length; i++) {
+            if (row2[i]==0){
+                System.out.print((i+1)+",");
+            }
+        }
+        System.out.println("\b"+".");
+
+        //Row 3
+        System.out.print("Seats available in row 3: ");
+        for (int i = 0; i < row3.length; i++) {
+            if (row3[i]==0){
+                System.out.print((i+1)+",");
+            }
+        }
+        System.out.println("\b"+".");
+
+        returnToMain();
     }
 }
