@@ -50,9 +50,7 @@ public class Theatre {
                     save();
                 break;
             case "6":
-
-                /*   load();*/
-
+                load();
                 break;
             case "0":
                 System.exit(0);
@@ -276,16 +274,28 @@ public class Theatre {
         String fileName= "C:\\Users\\User\\Desktop\\TxtFiles\\"+file;
         ObjectOutputStream outputStream = null;
 
-
             outputStream = new ObjectOutputStream(new FileOutputStream(fileName));
             outputStream.writeObject(row);
 
-
-
     }
- /*   public static void load() throws IOException, ClassNotFoundException {
+    public static void load(){
+        try {
+            loadFile("row1.txt");
+            loadFile("row2.txt");
+            loadFile("row3.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    static int i =1;
+    public static void loadFile(String file) throws IOException, ClassNotFoundException {
+
+        String fileName= "C:\\Users\\User\\Desktop\\TxtFiles\\"+file;
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName));
         int[] intArr = (int[])inputStream.readObject();
-        System.out.println("Array: "+Arrays.toString(intArr));
-    }*/
+        System.out.println("Row"+i+": "+Arrays.toString(intArr));
+        i++;
+    }
 }
