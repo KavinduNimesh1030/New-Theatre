@@ -1,8 +1,6 @@
 import java.io.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Theatre {
     static int[] row1 = {0,0,0,0,0,0,0,0,0,0,0,0};
@@ -57,6 +55,9 @@ public class Theatre {
                 break;
             case "7":
                 show_tickets_info();
+                break;
+            case "8":
+                sort_tickets();
                 break;
             case "0":
                 System.exit(0);
@@ -243,7 +244,7 @@ public class Theatre {
 
                     //get specifics ticket
                     if(seatNumber == ticket.seat && rowNum == ticket.row){
-                 
+
 
                         //remove ticket ob in array list
                         tickets.remove(ticket);
@@ -348,14 +349,25 @@ public class Theatre {
         i++;
     }
 
+    /**************************************Load Array**************************************/
     public static void show_tickets_info(){
-        System.out.println("---------------------------------Ticket Detail-----------------------------------");
+        System.out.println("---------------------------------Ticket Detail--------------------------------------------");
         double tot = 0;
         for (Ticket ticket : tickets) {
             tot += ticket.price;
             System.out.println("Row Number - "+ticket.row+",Seat Number - "+ticket.seat+" | Ticket Price - "+ticket.price+" | Name - "+ticket.person.name+" | Surname - "+ticket.person.surname+" | Email - "+ticket.person.email);
         }
         System.out.println("Total Price = "+tot);
+        returnToMain();
+    }
+    /**************************************sort_tickets**************************************/
+    public static void sort_tickets(){
+        System.out.println("---------------------------------Ticket Detail -----------------------------------------");
+        Collections.sort(tickets,(t1,t2)-> (int) (t1.price-t2.price));
+        for (Ticket ticket : tickets) {
+            System.out.println("Row Number - "+ticket.row+",Seat Number - "+ticket.seat+" | Ticket Price - "+ticket.price+" | Name - "+ticket.person.name+" | Surname - "+ticket.person.surname+" | Email - "+ticket.person.email);
+        }
+        System.out.println();
         returnToMain();
     }
 }

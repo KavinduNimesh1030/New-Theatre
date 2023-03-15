@@ -21,4 +21,11 @@ public class Ticket {
         System.out.println("Seat :"+seat);
         System.out.println("Price :"+price);
     }
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
