@@ -234,7 +234,7 @@ public class Theatre {
         int seatCount = row.length;
         if(seatNumber <=seatCount && seatNumber>0){
 
-            System.out.println("data "+row[seatNumber-1]);
+
             //check seat availability
             if(row[seatNumber-1] == 1){
 
@@ -243,7 +243,7 @@ public class Theatre {
 
                     //get specifics ticket
                     if(seatNumber == ticket.seat && rowNum == ticket.row){
-                        System.out.println(ticket.toString());
+                 
 
                         //remove ticket ob in array list
                         tickets.remove(ticket);
@@ -307,6 +307,7 @@ public class Theatre {
             saveInFile("row1.txt",row1);
             saveInFile("row2.txt",row2);
             saveInFile("row3.txt",row3);
+            System.out.println("Saved..!");
             returnToMain();
         } catch (IOException e) {
             e.printStackTrace();
@@ -349,10 +350,12 @@ public class Theatre {
 
     public static void show_tickets_info(){
         System.out.println("---------------------------------Ticket Detail-----------------------------------");
-
+        double tot = 0;
         for (Ticket ticket : tickets) {
+            tot += ticket.price;
             System.out.println("Row Number - "+ticket.row+",Seat Number - "+ticket.seat+" | Ticket Price - "+ticket.price+" | Name - "+ticket.person.name+" | Surname - "+ticket.person.surname+" | Email - "+ticket.person.email);
         }
+        System.out.println("Total Price = "+tot);
         returnToMain();
     }
 }
